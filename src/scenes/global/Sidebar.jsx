@@ -69,13 +69,35 @@ const SidebarApp = () => {
             "& :hover": {
               color: "#868dfb !important",
             },
-            "& :active": {
-              color: "#6870fa !important",
-            },
+            // "& :active": {
+            //   color: "#6870fa !important",
+            // },
           },
         }}
       >
-        <Menu iconShape="square">
+        <Menu
+          iconShape="square"
+          menuItemStyles={{
+            button: {
+              "&:hover": {
+                backgroundColor: "transparent !important",
+              },
+              // "&:active": {
+              //   color: "#6870fa !important",
+              // },
+            },
+          }}
+          // menuItemStyles={{
+          //   button: ({ active }) => {
+          //     // only apply styles on first level elements of the tree
+          //     if (active === )
+          //       return {
+          //         color: disabled ? "#f5d9ff" : "#d359ff",
+          //         backgroundColor: active ? "#eecef9" : undefined,
+          //       };
+          //   },
+          // }}
+        >
           {/* Logo and Menu Icon */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
