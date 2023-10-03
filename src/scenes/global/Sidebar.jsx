@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Sidebar, Menu, MenuItem, sidebarClasses } from "react-pro-sidebar";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { tokens } from "../../theme";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
@@ -19,12 +19,15 @@ import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import Profile from "../../assets/profile.jpg";
 
 const Item = ({ title, to, icon, selected, setSelected }) => {
+  const location = useLocation();
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
     <MenuItem
       active={selected === title}
-      style={{ color: colors.grey[100] }}
+      style={{
+        color: `${location.pathname === to ? "#6870fa" : colors.grey[100]}`,
+      }}
       onClick={() => setSelected(title)}
       icon={icon}
       component={<Link to={to} />}
@@ -41,37 +44,20 @@ const SidebarApp = () => {
   const [selected, setSelected] = useState("Dashboard");
 
   return (
-    <Box
-    // sx={{
-    // "& .pro-sidebar-inner": {
-    //   background: `${colors.primary[400]} !important`,
-    // },
-    // "& .pro-icon-wrapper": {
-    //   backgroundColor: "transparent !important",
-    // },
-    //   "& .pro-inner-item": {
-    //     padding: "5px 35px 5px 20px !important",
-    //   },
-    //   "& .pro-inner-item:hover": {
-    //     color: "#868dfb !important",
-    //   },
-    //   "& .pro-inner-item.active": {
-    //     color: "#6870fa !important",
-    //   },
-    // }}
-    >
+    <Box>
       <Sidebar
         collapsed={isCollapsed}
         rootStyles={{
           [`.${sidebarClasses.container}`]: {
             backgroundColor: `${colors.primary[400]} !important`,
-            padding: "5px 35px 5px 20px !important",
+            padding: "5px 0 20px !important",
             "& :hover": {
               color: "#868dfb !important",
             },
-            // "& :active": {
-            //   color: "#6870fa !important",
-            // },
+            height: "100vh",
+            "& :-webkit-scrollbar": {
+              display: "none,",
+            },
           },
         }}
       >
@@ -82,21 +68,8 @@ const SidebarApp = () => {
               "&:hover": {
                 backgroundColor: "transparent !important",
               },
-              // "&:active": {
-              //   color: "#6870fa !important",
-              // },
             },
           }}
-          // menuItemStyles={{
-          //   button: ({ active }) => {
-          //     // only apply styles on first level elements of the tree
-          //     if (active === )
-          //       return {
-          //         color: disabled ? "#f5d9ff" : "#d359ff",
-          //         backgroundColor: active ? "#eecef9" : undefined,
-          //       };
-          //   },
-          // }}
         >
           {/* Logo and Menu Icon */}
           <MenuItem
@@ -163,6 +136,13 @@ const SidebarApp = () => {
               selected={selected}
               setSelected={setSelected}
             />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Data
+            </Typography>
             <Item
               title="Manage Team"
               to="/team"
@@ -184,6 +164,13 @@ const SidebarApp = () => {
               selected={selected}
               setSelected={setSelected}
             />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Pages
+            </Typography>
             <Item
               title="Profile Form"
               to="/form"
@@ -205,6 +192,13 @@ const SidebarApp = () => {
               selected={selected}
               setSelected={setSelected}
             />
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 0 5px 20px" }}
+            >
+              Charts
+            </Typography>
             <Item
               title="Bar Chart"
               to="/bar"
