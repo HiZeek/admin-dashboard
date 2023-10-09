@@ -74,14 +74,11 @@ const Calendar = () => {
                   primary={event.title}
                   secondary={
                     <Typography>
-                      {
-                        (formatDate(event.start),
-                        {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        })
-                      }
+                      {formatDate(event.start, {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })}
                     </Typography>
                   }
                 />
@@ -113,18 +110,18 @@ const Calendar = () => {
             select={handleDateClick}
             eventClick={handleEventClick}
             eventsSet={(events) => setCurrentEvents(events)}
-            // initialEvents={[
-            //   {
-            //     id: "1234",
-            //     title: "Graduation",
-            //     date: "2022-09-14",
-            //   },
-            //   {
-            //     id: "4321",
-            //     title: "Dev Fest",
-            //     date: "2022-09-23",
-            //   },
-            // ]}
+            initialEvents={[
+              {
+                id: "1234",
+                title: "Graduation",
+                date: "2023-09-14",
+              },
+              {
+                id: "4321",
+                title: "Dev Fest",
+                date: "2023-11-23",
+              },
+            ]}
           />
         </Box>
       </Box>

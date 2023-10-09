@@ -9,10 +9,10 @@ import Contacts from "./scenes/contacts";
 import Invoices from "./scenes/invoices";
 import Form from "./scenes/form";
 import Calendar from "./scenes/calendar";
+import FAQ from "./scenes/faq";
 // import Bar from "./scenes/global/bar";
 // import Line from "./scenes/global/line";
 // import Pie from "./scenes/global/pie";
-// import FAQ from "./scenes/global/faq";
 // import Geography from "./scenes/global/geography";
 
 function App() {
@@ -33,10 +33,10 @@ function App() {
               <Route exact path="/invoices" element={<Invoices />} />
               <Route exact path="/form" element={<Form />} />
               <Route exact path="/calendar" element={<Calendar />} />
+              <Route exact path="/faq" element={<FAQ />} />
               {/* <Route exact path="/bar" element={<Bar />} /> */}
               {/* <Route exact path="/pie" element={<Pie />} /> */}
               {/* <Route exact path="/line" element={<Line />} /> */}
-              {/* <Route exact path="/faq" element={<FAQ />} /> */}
               {/* <Route exact path="/geography" element={<Geography />} /> */}
             </Routes>
           </main>
