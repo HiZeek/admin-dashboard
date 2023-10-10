@@ -54,7 +54,7 @@ const SidebarApp = () => {
             "& :hover": {
               color: "#868dfb !important",
             },
-            height: "100vh",
+            height: "100%",
             "& :-webkit-scrollbar": {
               display: "none,",
             },
